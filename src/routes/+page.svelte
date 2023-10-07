@@ -18,39 +18,39 @@
 
 <section>
 	<h1>
-		<span class="welcome">
+		<!-- <span class="welcome">
 			<picture>
 				<source srcset={welcome} type="image/webp" />
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app
+		to your new<br />SvelteKit app -->
 		<Carousel>
-			<div style="width: 100%">
-				<img src={img1} alt="" width="50">
+			<div style="width: 50%">
+				<img src={img1} alt="" width="200">
 				<p>@a</p>
 			</div>
-			<div style="width: 100%">
-				<img src={img2} alt="" width="50">
+			<div style="width: 50%">
+				<img src={img2} alt="" width="200">
 				<p>@a</p>
 			</div>
-			<div style="width: 100%">
-				<img src={img3} alt="" width="50">
+			<div style="width: 50%">
+				<img src={img3} alt="" width="200">
 				<p>@a</p>
 			</div>
-			<div style="width: 100%">
-				<img src={img4} alt="" width="50">
+			<div style="width: 50%">
+				<img src={img4} alt="" width="200">
 				<p>@a</p>
 			</div>
 		</Carousel>
 	</h1>
 
-	<h2>
+	<!-- <h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
 
-	<Counter />
+	<Counter /> -->
 </section>
 
 <style>

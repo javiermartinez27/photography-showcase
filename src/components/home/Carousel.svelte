@@ -1,17 +1,11 @@
 <div class="container">
-    <button on:pointerdown={left} style="opacity: {scroll_left == 0 ? '0' : '1'}">
-        <slot name="left_button">&lt;</slot>
-    </button>
-    <div
-        class="items-container"
-        bind:clientWidth={current_width}
+    <div class="items-container"
         bind:this={container}
-        on:scroll={scroll}>
+    >
+        <div style="width: 50%"/>
         <slot></slot>
+        <div style="width: 50%"/>
     </div>
-    <button on:pointerdown={right} style="opacity: { (Math.abs((scroll_left + current_width) - scroll_width) < 3) ? '0' : '1' }">
-        <slot name="right_button">&gt;</slot>
-    </button>
 </div>
 
 <style>
@@ -36,13 +30,22 @@
     .items-container {
         display: flex;
         flex-grow: 1;
-        overflow: auto;
 
+        overflow-y: auto;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
 
-        scroll-behavior: var(--cr-scroll-behavior, smooth);
         -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .items-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .fake-content {
+        height: 2000px;
     }
 
     :global(.items-container > *) {
@@ -57,20 +60,17 @@
 
 
 <script lang="ts">
-    let current_width = 0;
+
+    import { onMount } from "svelte";
     let container : HTMLElement;
 
-    let scroll_left = 0
-    let scroll_width = 0
-
-    function left() {
-        container.scrollBy(-current_width, 0)
-    }
-    function right() {
-        container.scrollBy(current_width, 0)
-    }
-    function scroll() {
-        scroll_left = container.scrollLeft; 
-        scroll_width = container.scrollWidth;
-    }
+    onMount(() => {
+        container.addEventListener('wheel', (ev) => {
+            ev.preventDefault();  // stop scrolling in another direction
+            if (ev.deltaY !== 0)
+                container.scrollLeft -= ev.deltaY;
+            if (ev.deltaX !== 0)
+                container.scrollLeft += ev.deltaX;
+        });
+    })
 </script>
