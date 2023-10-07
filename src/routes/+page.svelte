@@ -2,6 +2,13 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Carousel from '../components/home/Carousel.svelte';
+
+	import img1 from '$lib/images/img1.jpg';
+	import img2 from '$lib/images/img2.jpg';
+	import img3 from '$lib/images/img3.jpg';
+	import img4 from '$lib/images/img4.jpg';
+
 </script>
 
 <svelte:head>
@@ -19,6 +26,24 @@
 		</span>
 
 		to your new<br />SvelteKit app
+		<Carousel>
+			<div style="width: 100%">
+				<img src={img1} alt="" width="50">
+				<p>@a</p>
+			</div>
+			<div style="width: 100%">
+				<img src={img2} alt="" width="50">
+				<p>@a</p>
+			</div>
+			<div style="width: 100%">
+				<img src={img3} alt="" width="50">
+				<p>@a</p>
+			</div>
+			<div style="width: 100%">
+				<img src={img4} alt="" width="50">
+				<p>@a</p>
+			</div>
+		</Carousel>
 	</h1>
 
 	<h2>
