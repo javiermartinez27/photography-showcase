@@ -25,16 +25,16 @@
 		to your new<br />SvelteKit app -->
 		<Carousel >
 			<div style="width: 50%">
-				<img src={img1} alt="1" width="90%">
+				<img src={img1} alt="Armored Core VI. Developed by From Software" width="90%">
 			</div>
 			<div style="width: 50%">
-				<img src={img2} alt="2" width="80%">
+				<img src={img2} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="80%">
 			</div>
 			<div style="width: 50%">
-				<img src={img3} alt="3" width="90%">
+				<img src={img3} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="90%">
 			</div>
 			<div style="width: 50%">
-				<img src={img4} alt="4" width="75%">
+				<img src={img4} alt="Armored Core VI. Developed by From Software" width="75%">
 			</div>
 		</Carousel>
 

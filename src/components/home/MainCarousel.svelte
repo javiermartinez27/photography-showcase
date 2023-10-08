@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import { onMount } from "svelte";
-    import { mainMenuActiveDescription } from "../../stores";
+    import { activeDescription } from "../../stores";
     let container : HTMLElement;
 
     onMount(() => {
@@ -11,7 +11,7 @@
                 container.scrollLeft -= ev.deltaY;
             if (ev.deltaX !== 0)
                 container.scrollLeft += ev.deltaX;
-            mainMenuActiveDescription.set(getMiddleElement())
+            activeDescription.set(getMiddleElement())
         });
     })
 

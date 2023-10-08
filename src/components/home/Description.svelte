@@ -1,14 +1,19 @@
 <script lang="ts">
-    import { mainMenuActiveDescription } from "../../stores";
+    import { fade } from "svelte/transition";
+
+    import { activeDescription } from "../../stores";
+
     let description : string;
 
-    mainMenuActiveDescription.subscribe(value => {
+    activeDescription.subscribe(value => {
         description = value;
     })
 </script>
 
 <section>
-    <p>{description}</p>
+    {#key description}
+        <p in:fade>{description}</p>
+    {/key}
 </section>
 
 <style>
