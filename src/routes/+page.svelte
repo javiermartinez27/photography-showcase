@@ -1,13 +1,11 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import Carousel from '../components/home/Carousel.svelte';
+<script lang="ts">
+	import Carousel from '../components/home/MainCarousel.svelte';
 
 	import img1 from '$lib/images/img1.jpg';
 	import img2 from '$lib/images/img2.jpg';
 	import img3 from '$lib/images/img3.jpg';
 	import img4 from '$lib/images/img4.jpg';
+	import Description from '../components/home/Description.svelte';
 
 </script>
 
@@ -17,7 +15,6 @@
 </svelte:head>
 
 <section>
-	<h1>
 		<!-- <span class="welcome">
 			<picture>
 				<source srcset={welcome} type="image/webp" />
@@ -26,25 +23,22 @@
 		</span>
 
 		to your new<br />SvelteKit app -->
-		<Carousel>
+		<Carousel >
 			<div style="width: 50%">
-				<img src={img1} alt="" width="200">
-				<p>@a</p>
+				<img src={img1} alt="1" width="90%">
 			</div>
 			<div style="width: 50%">
-				<img src={img2} alt="" width="200">
-				<p>@a</p>
+				<img src={img2} alt="2" width="80%">
 			</div>
 			<div style="width: 50%">
-				<img src={img3} alt="" width="200">
-				<p>@a</p>
+				<img src={img3} alt="3" width="90%">
 			</div>
 			<div style="width: 50%">
-				<img src={img4} alt="" width="200">
-				<p>@a</p>
+				<img src={img4} alt="4" width="75%">
 			</div>
 		</Carousel>
-	</h1>
+
+		<Description/>
 
 	<!-- <h2>
 		try editing <strong>src/routes/+page.svelte</strong>
@@ -59,7 +53,8 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
+		flex: 1;
+		height: 100%;
 	}
 
 	h1 {
