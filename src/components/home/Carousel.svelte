@@ -5,6 +5,7 @@
     let container : HTMLElement;
 
     onMount(() => {
+        activeDescription.set(getMiddleElement())
         container.addEventListener('wheel', (ev) => {
             ev.preventDefault();  // stop scrolling in another direction
             if (ev.deltaY !== 0)
