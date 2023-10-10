@@ -3,15 +3,24 @@
     import { onMount } from "svelte";
     import { activeDescription } from "../../stores";
     
-    let container : HTMLElement = undefined;
+    let container : HTMLElement | undefined = undefined;
+
+    let description : string;
+
+    activeDescription.subscribe(value => {
+        description = value;
+    })
     
     onMount(() => {
-        activeDescription.set(getMiddleElement())
+        setMiddleDescription();
     })
 
 
-    function getMiddleElement() {
-        if (container === undefined) return;
+    function setMiddleDescription() {
+        if (container === undefined) {
+            activeDescription.set("");
+            return;
+        }
         const containerRect = container.getBoundingClientRect();
         const containerCenter = containerRect.left + containerRect.width / 2;
         let closestDistance = Infinity;
@@ -28,14 +37,22 @@
                 closestElement = item;
             }
         };
-        let description = closestElement?.firstElementChild?.alt;
-        if (description !== undefined) return description;
-        return items[1]?.firstElementChild?.alt;
+        let newDescription = closestElement?.firstElementChild?.alt;
+        if (newDescription !== undefined) {
+            if (newDescription !== description) {
+                for (let item of items) {
+                    item.children[0].classList.remove('image-centered');
+                }
+                closestElement.children[0].classList.add('image-centered');
+                activeDescription.set(newDescription)
+            }
+        return
+        }
     }
 
     setInterval(() => {
-        activeDescription.set(getMiddleElement());
-    }, 200)
+        setMiddleDescription();
+    }, 100)
 
 </script>
 
@@ -45,7 +62,9 @@
         class="items-container"
         bind:this={container}
     >
-        <div style="width: 45%" ></div>
+        <div style="width: 25%" >
+            <div></div> <!-- empty div to prevent item.children[0] from failing -->
+        </div>
         <slot></slot>
     </section>
 </div>
@@ -63,6 +82,7 @@
         display: flex;
         flex-grow: 1;
         align-items: center;
+        padding-right: 15rem;
 
         overflow-y: auto;
         overflow-x: auto;
@@ -88,5 +108,11 @@
     
     .items-container::-webkit-scrollbar {
         display: none;
+    }
+
+    @media screen and (max-width: 650px) {
+        .items-container {
+            padding-right: 0;
+        }
     }
 </style>
