@@ -13,6 +13,13 @@
     
     onMount(() => {
         setMiddleDescription();
+        container.addEventListener('wheel', (ev) => {
+            ev.preventDefault();  // stop scrolling in another direction
+            if (ev.deltaY !== 0)
+                container.scrollLeft -= ev.deltaY;
+            if (ev.deltaX !== 0)
+                container.scrollLeft += ev.deltaX;
+        });
     })
 
 
