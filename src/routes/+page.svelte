@@ -7,6 +7,10 @@
 	import img4 from '$lib/images/img4.jpg';
 	import Description from '../components/home/Description.svelte';
 
+	function randomPadding() {
+        return Math.floor(Math.random() * 6).toString() + 'rem';
+    }
+
 </script>
 
 <svelte:head>
@@ -16,17 +20,17 @@
 
 <section>
 	<Carousel >
-		<div class="horizontal-picture">
-			<img src={img1} alt="Armored Core VI. Developed by From Software" width="90%">
+		<div class="vertical-pic-container" style="padding-bottom: {randomPadding()};">
+			<img src={img1} alt="Armored Core VI. Developed by From Software" width="55%">
 		</div>
-		<div class="horizontal-picture">
-			<img src={img2} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="80%">
+		<div class="horizontal-pic-container" style="padding-bottom: {randomPadding()};">
+			<img src={img2} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="70%">
 		</div>
-		<div class="horizontal-picture">
-			<img src={img3} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="90%">
+		<div class="horizontal-pic-container" style="padding-bottom: {randomPadding()};">
+			<img src={img3} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="70%">
 		</div>
-		<div class="horizontal-picture">
-			<img src={img4} alt="Armored Core VI. Developed by From Software" width="75%">
+		<div class="vertical-pic-container" style="padding-bottom: {randomPadding()};">
+			<img src={img4} alt="Armored Core VI. Developed by From Software" width="55%">
 		</div>
 	</Carousel>
 
@@ -47,12 +51,22 @@
 		width: 100%;
 	}
 
-	.horizontal-picture {
-		width: 60%;
+	.horizontal-pic-container {
+		display: flex;
+		justify-content: center;
+		width: 75%;
+		max-height: 85%;
 	}
 
-	@media screen and (max-width: 768px) {
-		.horizontal-picture {
+	.vertical-pic-container {
+		display: flex;
+		justify-content: center;
+		width: 55%;
+		max-height: 85%;
+	}
+
+	@media screen and (max-width: 650px) {
+		.horizontal-pic-container {
 			width: 90%;
 		}
 	}

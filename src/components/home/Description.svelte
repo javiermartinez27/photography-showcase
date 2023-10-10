@@ -18,11 +18,12 @@
 
 <style>
     section {
-        border: 2px solid black;
+        border: 1px solid black;
         position: fixed;
         bottom: 30px;
         width: 20em;
         height: 8em;
         text-align: center;
+        background-color: var(--color-bg-1);
     }
 </style>

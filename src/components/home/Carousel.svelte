@@ -33,18 +33,21 @@
                 closestElement = item;
             }
         };
-        return closestElement?.firstElementChild?.alt;
+        let description = closestElement?.firstElementChild?.alt;
+        if (description !== undefined) return description;
+        return items[1]?.firstElementChild?.alt;
     }
 
 </script>
 
 <div class="container">
-    <section id="items-container" class="items-container"
+    <section
+        id="items-container"
+        class="items-container"
         bind:this={container}
     >
-        <div style="width: 20%"/>
+        <div style="width: 45%"></div>
         <slot id="childrens"></slot>
-        <div style="width: 20%"/>
     </section>
 </div>
 
