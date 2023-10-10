@@ -2,21 +2,16 @@
 
     import { onMount } from "svelte";
     import { activeDescription } from "../../stores";
-    let container : HTMLElement;
-
+    
+    let container : HTMLElement = undefined;
+    
     onMount(() => {
         activeDescription.set(getMiddleElement())
-        container.addEventListener('wheel', (ev) => {
-            ev.preventDefault();  // stop scrolling in another direction
-            if (ev.deltaY !== 0)
-                container.scrollLeft -= ev.deltaY;
-            if (ev.deltaX !== 0)
-                container.scrollLeft += ev.deltaX;
-            activeDescription.set(getMiddleElement())
-        });
     })
 
+
     function getMiddleElement() {
+        if (container === undefined) return;
         const containerRect = container.getBoundingClientRect();
         const containerCenter = containerRect.left + containerRect.width / 2;
         let closestDistance = Infinity;
@@ -38,6 +33,10 @@
         return items[1]?.firstElementChild?.alt;
     }
 
+    setInterval(() => {
+        activeDescription.set(getMiddleElement());
+    }, 200)
+
 </script>
 
 <div class="container">
@@ -46,8 +45,8 @@
         class="items-container"
         bind:this={container}
     >
-        <div style="width: 45%"></div>
-        <slot id="childrens"></slot>
+        <div style="width: 45%" ></div>
+        <slot></slot>
     </section>
 </div>
 
