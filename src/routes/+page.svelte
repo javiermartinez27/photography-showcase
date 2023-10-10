@@ -16,16 +16,16 @@
 
 <section>
 	<Carousel >
-		<div style="width: 50%">
+		<div class="horizontal-picture">
 			<img src={img1} alt="Armored Core VI. Developed by From Software" width="90%">
 		</div>
-		<div style="width: 50%">
+		<div class="horizontal-picture">
 			<img src={img2} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="80%">
 		</div>
-		<div style="width: 50%">
+		<div class="horizontal-picture">
 			<img src={img3} alt="Cyberpunk 2077. Developed by CD Projekt Red" width="90%">
 		</div>
-		<div style="width: 50%">
+		<div class="horizontal-picture">
 			<img src={img4} alt="Armored Core VI. Developed by From Software" width="75%">
 		</div>
 	</Carousel>
@@ -46,4 +46,15 @@
 	h1 {
 		width: 100%;
 	}
+
+	.horizontal-picture {
+		width: 60%;
+	}
+
+	@media screen and (max-width: 768px) {
+		.horizontal-picture {
+			width: 90%;
+		}
+	}
+
 </style>

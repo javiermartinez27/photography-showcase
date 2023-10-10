@@ -53,14 +53,14 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        gap: var(--cr-container-gap, 0.5rem);
-        justify-content: space-between;
+        height: 100vh;
     }
 
 
     .items-container {
         display: flex;
         flex-grow: 1;
+        align-items: center;
 
         overflow-y: auto;
         overflow-x: auto;
