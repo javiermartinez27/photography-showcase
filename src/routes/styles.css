@@ -88,8 +88,8 @@ button:focus:not(:focus-visible) {
 	width: calc(100% + 50px);
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
-	-webkit-transform: translate3d(0,20px, 0);
-	transform: translate3d(0,20px,0);
+	-webkit-transform: translate3d(0,5px, 0);
+	transform: translate3d(0,5px,0);
 }
 
 .image-centered {

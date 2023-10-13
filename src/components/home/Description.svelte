@@ -18,7 +18,7 @@
 
 <style>
     section {
-        border: 1px solid black;
+        border: 1.5px solid black;
         position: fixed;
         bottom: 30px;
         width: 20em;

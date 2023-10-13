@@ -7,6 +7,7 @@
 	import img4 from '$lib/images/img4.jpg';
 	import Description from '../components/home/Description.svelte';
 	import Picture from '../components/home/Picture.svelte';
+	import VerticalLine from '../components/home/VerticalLine.svelte';
 
 	function randomPadding() {
         return Math.floor(Math.random() * 6).toString() + 'rem';
@@ -20,6 +21,7 @@
 </svelte:head>
 
 <section>
+	<VerticalLine/>
 	<Carousel >
 		<Picture orientation="vertical" src={img1} alt="foto 1 Armored Core VI. Developed by From Software"/>
 		<Picture orientation="horizontal" src={img2} alt="foto 2 Cyberpunk 2077. Developed by CD Projekt Red"/>
