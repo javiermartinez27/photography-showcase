@@ -8,10 +8,7 @@
 	import Description from '../components/home/Description.svelte';
 	import Picture from '../components/home/Picture.svelte';
 	import VerticalLine from '../components/home/VerticalLine.svelte';
-
-	function randomPadding() {
-        return Math.floor(Math.random() * 6).toString() + 'rem';
-    }
+	import Header from './Header.svelte';
 
 </script>
 
@@ -21,6 +18,7 @@
 </svelte:head>
 
 <section>
+	<Header />
 	<VerticalLine/>
 	<Carousel >
 		<Picture orientation="vertical" src={img1} alt="foto 1 Armored Core VI. Developed by From Software"/>

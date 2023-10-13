@@ -4,9 +4,9 @@
 <div class="line"></div>
 
 <style>
-    	.circle {
+    .circle {
 		position: absolute;
-		top: 25%; left: 50%;
+		top: 15%; left: 50%;
 		transform: translate(-50%, -50%);
 		width: 35px;
 		height: 35px;
