@@ -118,8 +118,10 @@
     }
 
     @media screen and (max-width: 650px) {
+
         .items-container {
             padding-right: 0;
+            padding-bottom: 2rem;
         }
     }
 </style>

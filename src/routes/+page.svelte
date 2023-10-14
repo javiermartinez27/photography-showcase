@@ -24,7 +24,7 @@
 		<Picture orientation="vertical" src={img1} alt="foto 1 Armored Core VI. Developed by From Software"/>
 		<Picture orientation="horizontal" src={img2} alt="foto 2 Cyberpunk 2077. Developed by CD Projekt Red"/>
 		<Picture orientation="horizontal" src={img3} alt="foto 3 Cyberpunk 2077. Developed by CD Projekt Red"/>
-		<Picture orientation="horizontal" src={img4} alt="foto 4 Armored Core VI. Developed by From Software"/>
+		<Picture orientation="vertical" src={img4} alt="foto 4 Armored Core VI. Developed by From Software"/>
 	</Carousel>
 
 	<Description/>
